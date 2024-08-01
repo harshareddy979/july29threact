@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { SecondComponent } from "../FirstComponent";
+import LoginComponent from "./Login";
 
  
 function RegisterComponent(){
@@ -49,7 +50,7 @@ function RegisterComponent(){
           <label >Address</label>
           <input type="text"  placeholder="Enter your address..." value={address} onChange={(e)=>{setAddress(e.target.value)}}/>
           <button onClick={()=>{checkRegistrarDetails()}}>Register</button>
-          {flag ? <SecondComponent/> :"please register to see details"}
+          {flag ? <LoginComponent registerUsername={userName} registerPassword={password}/> :"please register to see details"}
         </div>
     )
  
