@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { createContext, useState } from "react";
 import { SecondComponent } from "../FirstComponent";
 import LoginComponent from "./Login";
 
- 
+export const UserContext=createContext()
+
 function RegisterComponent(){
     const [a,setA]=useState(10)
     const [userName,setUserName]=useState("")
@@ -37,6 +38,7 @@ function RegisterComponent(){
     }
 
     return (
+    <UserContext.Provider value={userName}>
         <div style={{display:"grid",placeContent:"center"}}>
             {a}
         <button onClick={()=>{setA(20)}}>update a</button>
@@ -52,6 +54,7 @@ function RegisterComponent(){
           <button onClick={()=>{checkRegistrarDetails()}}>Register</button>
           {flag ? <LoginComponent registerUsername={userName} registerPassword={password}/> :"please register to see details"}
         </div>
+    </UserContext.Provider>
     )
  
 }
