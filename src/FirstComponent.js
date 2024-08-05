@@ -6,7 +6,8 @@ function FirstComponent(){
 
     return(
         <div>
-            <h1 className="header">this is first component</h1>
+
+            {/* <h1 className="header">this is first component</h1> */}
             {/* <SecondComponent/> */}
             <App />
         </div>

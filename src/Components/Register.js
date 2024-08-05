@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import { SecondComponent } from "../FirstComponent";
 import LoginComponent from "./Login";
+import NavBar from "./NavBar";
 
 export const UserContext=createContext()
 
@@ -39,6 +40,8 @@ function RegisterComponent(){
 
     return (
     <UserContext.Provider value={userName}>
+        <div>
+            <NavBar/>
         <div style={{display:"grid",placeContent:"center"}}>
             {a}
         <button onClick={()=>{setA(20)}}>update a</button>
@@ -53,6 +56,7 @@ function RegisterComponent(){
           <input type="text"  placeholder="Enter your address..." value={address} onChange={(e)=>{setAddress(e.target.value)}}/>
           <button onClick={()=>{checkRegistrarDetails()}}>Register</button>
           {flag ? <LoginComponent registerUsername={userName} registerPassword={password}/> :"please register to see details"}
+        </div>
         </div>
     </UserContext.Provider>
     )

@@ -1,6 +1,7 @@
 import React, { createContext, useState } from "react";
 import { SecondComponent } from "../FirstComponent";
 import HomePage from "./Homepage";
+import NavBar from "./NavBar";
 
 export const LoginContext=createContext()
  
@@ -34,6 +35,8 @@ function LoginComponent(props){
 
     return (
     <LoginContext.Provider value={{userName,password}}>
+        <div>
+            <NavBar/>
         <div style={{display:"grid",placeContent:"center"}}>
         {details && details["username"]}
         {details && details["password"]}
@@ -46,6 +49,7 @@ function LoginComponent(props){
           <input type="password" placeholder="Enter your password..." value={password} onChange={(e)=>{setPassword(e.target.value)}}/>
         <button onClick={()=>{checkLoginDetails()}}>Login</button>
           {flag ? <HomePage obj={setDetails} loginUserName={userName} setLoginFlag={setFlag} setUserName={setUserName} setPassword={setPassword}/> :"please Login to see details"}
+        </div>
         </div>
     </LoginContext.Provider>
     )
