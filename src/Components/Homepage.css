@@ -1,0 +1,12 @@
+.homepage{
+    background: grey;
+    height: 20vh;
+    width:40vw;
+    display: grid;
+    place-content: center
+}
+.homepage2{
+    display: grid;
+    grid-template-columns: 50% 50%;
+    gap: 1%
+}
