@@ -1,9 +1,10 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useReducer, useState } from "react";
 import { UserContext } from "./Register";
 import { LoginContext } from "./Login";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
 import "./Homepage.css"
+import { initialState, ValuesReducer } from "./Reducer";
 
 function HomePage(props){
     // const userName=useContext(UserContext);
@@ -16,13 +17,14 @@ function HomePage(props){
     const [gender,setGender]=useState("")
 
     const navigate=useNavigate()
+    const [values,dispatch]=useReducer(ValuesReducer,initialState)
     return(
         <div>
             <NavBar/>
             {/* {"username of register page is"+userName}
             {"username of login page is "+valuesLogin?.userName}
             {"password is "+valuesLogin?.password} */}
-            <h1>Welcome To Homepage {props.loginUserName}</h1>
+            <h1>Welcome To Homepage {values.userName}</h1>
             <h2>Gender</h2>
             <input type="radio" checked={gender==="male"} onClick={()=>{setGender("male")}}></input>
             <label>Male</label>

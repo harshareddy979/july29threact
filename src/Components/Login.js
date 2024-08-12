@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { SecondComponent } from "../FirstComponent";
 import HomePage from "./Homepage";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
+import { initialState, ValuesReducer } from "./Reducer";
 
 export const LoginContext=createContext()
  
@@ -19,20 +20,21 @@ function LoginComponent(props){
     }
     var arr=[userName,password,flag]
     const navigate=useNavigate()
+    const [values,dispatch]=useReducer(ValuesReducer,initialState)
 
     function checkLoginDetails(){
-        if(userName !== ""){
-            if(password !== ""){
+        if(userName === values.userName){
+            if(password === values.password){
                             alert("Login success")
                             navigate("/homepage")
                             // setFlag(true)
                         }
             else{
-                alert("password is required")
+                alert("password is not matching with registration page")
             }
         }
         else{
-            alert("username is required")
+            alert("username is not matching with registration page")
         }
     }
 

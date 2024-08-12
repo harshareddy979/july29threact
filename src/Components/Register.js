@@ -1,8 +1,9 @@
-import React, { createContext, useState } from "react";
+import React, { createContext, useReducer, useState } from "react";
 import { SecondComponent } from "../FirstComponent";
 import LoginComponent from "./Login";
 import NavBar from "./NavBar";
 import { useNavigate } from "react-router-dom";
+import { initialState, ValuesReducer } from "./Reducer";
 
 export const UserContext=createContext()
 
@@ -13,14 +14,16 @@ function RegisterComponent(){
     const [mobileNumber,setMobileNumber]=useState("")
     const [address,setAddress]=useState("")
     const [flag,setFlag]=useState(false)
+    const [values,dispatch]=useReducer(ValuesReducer,initialState)
     // var a=10
     const navigate=useNavigate()
 
-    function checkRegistrarDetails(){
+    async function checkRegistrarDetails(){
         if(userName !== ""){
             if(password !== ""){
                 if(mobileNumber !== ""){
                         if(address !== ""){
+                            await dispatch({type:"VALUES",userName:userName,password:password})
                             alert("registration success")
                             navigate("/login")
                             // setFlag(true)
