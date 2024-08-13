@@ -23,7 +23,7 @@ function RegisterComponent(){
             if(password !== ""){
                 if(mobileNumber !== ""){
                         if(address !== ""){
-                            await dispatch({type:"VALUES",userName:userName,password:password})
+                            await dispatch({type:"VALUES",userName:userName,password:password,mobileNumber:mobileNumber})
                             alert("registration success")
                             navigate("/login")
                             // setFlag(true)

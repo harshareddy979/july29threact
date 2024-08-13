@@ -20,11 +20,12 @@ function HomePage(props){
     const [values,dispatch]=useReducer(ValuesReducer,initialState)
     return(
         <div>
-            <NavBar/>
+            <NavBar />
             {/* {"username of register page is"+userName}
             {"username of login page is "+valuesLogin?.userName}
             {"password is "+valuesLogin?.password} */}
             <h1>Welcome To Homepage {values.userName}</h1>
+            <h2>{"your mobile number is "+values.mobileNumber}</h2>
             <h2>Gender</h2>
             <input type="radio" checked={gender==="male"} onClick={()=>{setGender("male")}}></input>
             <label>Male</label>

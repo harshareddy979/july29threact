@@ -1,17 +1,19 @@
 export var initialState={
     userName:"",
-    password:""
+    password:"",
+    mobileNumber:""
 }
 
 // action={
 //     type:"VALUES",
 //     userName:"",
-//     password:""
+//     password:"",
+//      mobileNumber:""
 // }
 
 export function ValuesReducer(state,action){
         if(action.type === "VALUES"){
-            initialState={...initialState,userName:action.userName,password:action.password}
+            initialState={...initialState,userName:action.userName,password:action.password,mobileNumber:action.mobileNumber}
             return initialState
         }
         else{

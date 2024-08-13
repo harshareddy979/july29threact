@@ -11,6 +11,7 @@ import HomePage from './Components/Homepage';
 import ContactPage from './Components/Contact';
 import UseEffect from './Components/UseEffect';
 import UseRef from './Components/UseRef';
+import ApiCalls from './Components/apiCalls';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -24,6 +25,7 @@ root.render(
                 <Route path='/contact' element={<ContactPage/>}></Route>
                 <Route path='/useeffect' element={<UseEffect/>}></Route>
                 <Route path='/useRef' element={<UseRef/>}></Route>
+                <Route path='/apiCalls' element={<ApiCalls/>}></Route>
         </Routes>
     </BrowserRouter>
  
